@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Silent Shield - Women Safety System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .container { background: white; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); width: 100%; max-width: 550px; padding: 30px; text-align: center; }
+        .school-header { background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%); color: white; padding: 20px; border-radius: 15px; margin-bottom: 25px; }
+        .school-logo { font-size: 40px; margin-bottom: 10px; }
+        .school-name { font-size: 20px; font-weight: bold; margin-bottom: 5px; }
+        .student-info { font-size: 16px; opacity: 0.9; }
+        .project-title { font-size: 28px; color: #1a2980; margin: 20px 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.1); }
+        .emergency-button { background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); color: white; padding: 35px; font-size: 26px; font-weight: bold; border-radius: 50%; cursor: pointer; border: none; width: 200px; height: 200px; margin: 25px auto; box-shadow: 0 15px 30px rgba(255,0,0,0.4); transition: all 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: center; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
+        .emergency-button:hover { transform: scale(1.05); box-shadow: 0 20px 40px rgba(255,0,0,0.6); }
+        .emergency-button:active { transform: scale(0.95); }
+        .emergency-icon { font-size: 50px; margin-bottom: 15px; }
+        .instructions { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; text-align: left; border-radius: 0 10px 10px 0; font-size: 15px; }
+        .contacts-section { background: #f8f9fa; padding: 25px; border-radius: 15px; margin: 25px 0; text-align: left; border: 2px solid #e0e0e0; }
+        .contacts-section h3 { color: #1a2980; margin-bottom: 20px; font-size: 20px; border-bottom: 2px solid #1a2980; padding-bottom: 10px; }
+        .contact-input { width: 100%; padding: 15px; margin: 12px 0; border: 2px solid #ddd; border-radius: 10px; font-size: 16px; transition: border 0.3s; }
+        .contact-input:focus { outline: none; border-color: #ff416c; box-shadow: 0 0 8px rgba(255,65,108,0.3); }
+        .save-btn { background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%); color: white; border: none; padding: 15px 25px; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 15px; width: 100%; transition: all 0.3s; }
+        .save-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(76,175,80,0.4); }
+        .alert-box { position: fixed; top: 30px; left: 50%; transform: translateX(-50%); background: #4CAF50; color: white; padding: 20px 30px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); display: none; z-index: 1000; font-size: 16px; max-width: 80%; text-align: center; }
+        .error-box { background: #f44336; }
+        .warning-box { background: #FF9800; }
+        .emergency-numbers { background: #e8f5e9; padding: 15px; border-radius: 10px; margin: 20px 0; border: 2px solid #4CAF50; }
+        .emergency-numbers h4 { color: #1a2980; margin-bottom: 10px; font-size: 18px; }
+        .number-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
+        .number-item { background: white; padding: 10px; border-radius: 8px; font-size: 14px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
+        .subject-info { background: #e3f2fd; padding: 15px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #2196F3; text-align: left; }
+        .footer { margin-top: 25px; color: #666; font-size: 14px; padding-top: 15px; border-top: 1px solid #eee; }
+        .testing-buttons { display: flex; gap: 10px; margin-top: 15px; }
+        .test-btn { flex: 1; padding: 10px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold; }
+        .test-real { background: #4CAF50; color: white; }
+        .test-simulate { background: #2196F3; color: white; }
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            .emergency-button { width: 180px; height: 180px; padding: 30px; font-size: 22px; }
+            .emergency-icon { font-size: 45px; }
+            .number-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="school-header">
+            <div class="school-logo">🏫</div>
+            <div class="school-name">G.I.C. INTER COLLEGE, DHOPAR DHAR</div>
+            <div class="student-info">Project by: Nandani | Class: 10th</div>
+        </div>
+        
+        <div class="project-title">
+            <i class="fas fa-shield-alt"></i> SILENT SHIELD
+            <div style="font-size: 18px; color: #666; margin-top: 5px;">Working Women Safety System</div>
+        </div>
+        
+        <div class="subject-info">
+            <strong><i class="fas fa-book"></i> Subject:</strong> Computer Science / Social Science<br>
+            <strong><i class="fas fa-calendar"></i> Academic Year:</strong> 2025-2026<br>
+            <strong><i class="fas fa-graduation-cap"></i> Guide Teacher:</strong> Computer Teacher
+        </div>
+        
+        <div class="instructions">
+            <strong><i class="fas fa-info-circle"></i> Instructions:</strong><br>
+            1. Add emergency contacts below<br>
+            2. Click "Save Contacts"<br>
+            3. Press RED emergency button<br>
+            4. Allow location permission<br>
+            5. SMS will open with your location<br>
+            6. Press SEND in messaging app
+        </div>
+        
+        <!-- EMERGENCY BUTTON - REAL WORKING VERSION -->
+        <button class="emergency-button" id="emergencyBtn" onclick="sendEmergencySMS()">
+            <div class="emergency-icon">🆘</div>
+            EMERGENCY<br>PRESS
+        </button>
+        
+        <div class="testing-buttons">
+            <button class="test-btn test-real" onclick="sendEmergencySMS()"><i class="fas fa-paper-plane"></i> Real SMS</button>
+            <button class="test-btn test-simulate" onclick="simulateEmergency()"><i class="fas fa-desktop"></i> Simulate</button>
+        </div>
+        
+        <p style="color: #666; margin: 15px 0; font-size: 15px;">
+            <i class="fas fa-exclamation-triangle"></i> For real emergency situations
+        </p>
+        
+        <div class="contacts-section">
+            <h3><i class="fas fa-address-book"></i> Emergency Contacts</h3>
+            <input type="tel" class="contact-input" id="contact1" placeholder="📱 Contact 1 (Mother): +91 98765 43210" value="+91 9876543210">
+            <input type="tel" class="contact-input" id="contact2" placeholder="📱 Contact 2 (Father): +91 98765 43211" value="+91 9876543211">
+            <input type="tel" class="contact-input" id="contact3" placeholder="📱 Contact 3 (Friend): +91 98765 43212" value="+91 9876543212">
+            <button class="save-btn" onclick="saveContacts()"><i class="fas fa-save"></i> Save Contacts</button>
+            <p style="color: #666; font-size: 13px; margin-top: 15px;"><i class="fas fa-lightbulb"></i> Contacts are saved in your browser. They remain even after closing the app.</p>
+        </div>
+        
+        <div class="emergency-numbers">
+            <h4><i class="fas fa-phone-alt"></i> Emergency Numbers (India)</h4>
+            <div class="number-grid">
+                <div class="number-item">🚓 Police: <strong>100</strong></div>
+                <div class="number-item">👩 Women Helpline: <strong>1091</strong></div>
+                <div class="number-item">🚑 Ambulance: <strong>102</strong></div>
+                <div class="number-item">👶 Child Helpline: <strong>1098</strong></div>
+            </div>
+        </div>
+        
+        <div style="background: #f5f5f5; padding: 15px; border-radius: 10px; margin: 20px 0; font-size: 14px;">
+            <strong><i class="fas fa-code"></i> Technology Used:</strong><br>
+            HTML5 • CSS3 • JavaScript • Geolocation API • SMS URI • LocalStorage
+        </div>
+        
+        <div class="footer">
+            <p><strong>G.I.C. Inter College, Dhopar Dhar</strong></p>
+            <p>Computer Science Project | Class 10th | 2025-2026</p>
+            <p style="margin-top: 10px; color: #999; font-size: 12px;"><i class="fas fa-lock"></i> Your data stays on your device only</p>
+        </div>
+    </div>
+    
+    <div class="alert-box" id="alertBox">Alert message will appear here</div>
+
+    <script>
+        // WORKING VERSION WITH REAL SMS
+        let savedContacts = [];
+        
+        // Load saved contacts on page load
+        window.onload = function() {
+            console.log("Silent Shield - Working Version Loaded");
+            showAlert("Welcome! Add contacts and test. Use SIMULATE first.", "warning-box");
+            
+            // Load saved contacts from browser storage
+            try {
+                const saved = localStorage.getItem('emergencyContacts');
+                if (saved) {
+                    savedContacts = JSON.parse(saved);
+                    document.getElementById('contact1').value = savedContacts[0] || '';
+                    document.getElementById('contact2').value = savedContacts[1] || '';
+                    document.getElementById('contact3').value = savedContacts[2] || '';
+                    showAlert("📱 Loaded saved contacts!", "warning-box");
+                }
+            } catch (e) {
+                console.log("No saved contacts yet");
+            }
+        };
+        
+        // Save contacts
+        function saveContacts() {
+            savedContacts = [
+                document.getElementById('contact1').value.trim(),
+                document.getElementById('contact2').value.trim(),
+                document.getElementById('contact3').value.trim()
+            ];
+            
+            // Validate contacts
+            const validContacts = savedContacts.filter(contact => {
+                return contact && contact.length >= 10;
+            });
+            
+            if (validContacts.length === 0) {
+                showAlert("❌ Please enter at least one valid phone number!", "error-box");
+                return;
+            }
+            
+            // Save to browser localStorage
+            localStorage.setItem('emergencyContacts', JSON.stringify(savedContacts));
+            showAlert(`✅ Saved ${validContacts.length} contacts!`);
+        }
+        
+        // REAL FUNCTION TO SEND SMS WITH LOCATION
+        async function sendEmergencySMS() {
+            console.log("Emergency SMS function called");
+            
+            // Check if contacts are saved
+            if (savedContacts.length === 0 || savedContacts.every(c => !c)) {
+                showAlert("⚠️ Please save emergency contacts first!", "error-box");
+                return;
+            }
+            
+            // Get valid contacts
+            const validContacts = savedContacts.filter(contact => 
+                contact && contact.length >= 10
+            );
+            
+            if (validContacts.length === 0) {
+                showAlert("❌ No valid contacts found!", "error-box");
+                return;
+            }
+            
+            // Get current location
+            try {
+                showAlert("📍 Getting your location...", "warning-box");
+                
+                const position = await getCurrentLocation();
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                
+                // Create Google Maps link
+                const mapsLink = `https://maps.google.com/?q=${latitude},${longitude}`;
+                const locationText = `📍 My Location: ${mapsLink}`;
+                
+                // Create emergency message
+                const message = `🆘 EMERGENCY! I need help immediately! ${locationText}`;
+                
+                // Visual feedback
+                const btn = document.getElementById('emergencyBtn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<div class="emergency-icon">📤</div>SENDING...';
+                btn.style.background = 'linear-gradient(135deg, #FF9800 0%, #F57C00 100%)';
+                
+                // Send SMS to each contact
+                for (const contact of validContacts) {
+                    // Clean phone number (remove spaces, +, etc)
+                    const cleanNumber = contact.replace(/\s+/g, '').replace('+', '');
+                    
+                    // Open SMS app with message
+                    const smsUri = `sms:${cleanNumber}?body=${encodeURIComponent(message)}`;
+                    window.open(smsUri, '_blank');
+                    
+                    console.log(`SMS prepared for: ${cleanNumber}`);
+                }
+                
+                showAlert(`✅ SMS ready to send to ${validContacts.length} contacts! Check your messaging app.`);
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = 'linear-gradient(135deg, #ff0000 0%, #cc0000 100%)';
+                }, 3000);
+                
+            } catch (error) {
+                console.error("Location error:", error);
+                showAlert("⚠️ Could not get location. Sending without location...", "error-box");
+                
+                // Send without location
+                const message = "🆘 EMERGENCY! I need help immediately!";
+                for (const contact of validContacts) {
+                    const cleanNumber = contact.replace(/\s+/g, '').replace('+', '');
+                    const smsUri = `sms:${cleanNumber}?body=${encodeURIComponent(message)}`;
+                    window.open(smsUri, '_blank');
+                }
+                showAlert("✅ SMS ready (without location). Check your messaging app.");
+            }
+        }
+        
+        // Get current location using Geolocation API
+        function getCurrentLocation() {
+            return new Promise((resolve, reject) => {
+                if (!navigator.geolocation) {
+                    reject("Geolocation not supported");
+                    return;
+                }
+                
+                navigator.geolocation.getCurrentPosition(resolve, reject, {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 0
+                });
+            });
+        }
+        
+        // Simulate function (for testing without sending SMS)
+        function simulateEmergency() {
+            console.log("Simulating emergency");
+            
+            if (savedContacts.length === 0) {
+                showAlert("⚠️ Please save emergency contacts first!", "error-box");
+                return;
+            }
+            
+            const validContacts = savedContacts.filter(c => c && c.length >= 10);
+            
+            // Visual simulation
+            const btn = document.getElementById('emergencyBtn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<div class="emergency-icon">📡</div>SIMULATING...';
+            btn.style.background = 'linear-gradient(135deg, #2196F3 0%, #0D47A1 100%)';
+            
+            showAlert(`🔬 Simulation: Would send to ${validContacts.length} contacts`, "warning-box");
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = 'linear-gradient(135deg, #ff0000 0%, #cc0000 100%)';
+                showAlert("✅ Simulation complete! In real emergency, SMS will be sent.");
+            }, 2000);
+        }
+        
+        // Show alert message
+        function showAlert(message, className = "") {
+            const alertBox = document.getElementById('alertBox');
+            alertBox.innerHTML = message;
+            alertBox.className = "alert-box " + className;
+            alertBox.style.display = 'block';
+            
+            setTimeout(() => {
+                alertBox.style.display = 'none';
+                alertBox.className = "alert-box";
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
